@@ -5,20 +5,7 @@ N, M = 5, 5
 
 
 class Entity(ABC):
-    """
-    x, y - coords
-    """
-    emap = None
-
-    def __init__(self, x, y):
-        self.x, self.y = x, y
-
-    def get_position(self) -> tuple[int, int]:
-        return self.x, self.y
-
-    def set_position(self, x: int, y: int) -> None:
-        self.x, self.y = x, y
-
+    # entity should not control its position
     def get_type(self) -> str:
         return self.__class__.__name__
 
@@ -91,24 +78,3 @@ class Map:
         return graph
 
 
-class Rock(Entity):
-    pass
-
-
-class Tree(Entity):
-    pass
-
-
-class Grass(Entity):
-    pass
-
-
-class Creature(Entity, ABC):
-    @abstractmethod
-    def make_move(self):
-        pass
-
-
-class Herbivore(Creature):
-    def make_move(self):
-        pass
